@@ -1,254 +1,368 @@
-Quiero que modifiques DIRECTAMENTE el documento Word adjunto para convertirlo en el formato oficial de salida de un agente llamado "VWFS AI Opportunity Discovery Agent".
+# VWFS Discovery Guidelines
 
-IMPORTANTE:
-- Debes EDITAR el archivo Word existente, no crear una plantilla completamente diferente.
-- Conserva el estilo visual, identidad, encabezados, colores, tablas y formato corporativo del documento original siempre que sea posible.
-- Simplifica su contenido y estructura.
-- El resultado debe ser una ficha ejecutiva de iniciativa, no un cuestionario.
-- No llenes el documento con información de una iniciativa ficticia.
-- Déjalo como PLANTILLA VACÍA lista para ser completada posteriormente por el agente.
-- No agregues información que no esté solicitada en estas instrucciones.
+## Propósito
 
-## CONTEXTO
+Este documento define la metodología que debe seguir VWFS AI Opportunity Discovery Agent para recopilar la información necesaria para completar el Registro de Iniciativa oficial.
 
-VWFS AI Opportunity Discovery Agent realiza una conversación previa con el colaborador.
+El discovery debe ser consultivo, breve y adaptativo. No debe sentirse como un cuestionario.
 
-Durante esa conversación obtiene:
-- objetivo;
-- problema;
-- proceso actual;
-- proceso futuro;
-- impacto esperado;
-- usuarios y áreas;
-- empresas impactadas;
-- productos y perfiles de clientes impactados;
-- marcas impactadas;
-- KPIs;
+El agente no necesita preguntar cada campo literalmente. Debe aprovechar toda la información proporcionada durante la conversación y preguntar únicamente lo que falte o necesite aclaración.
+
+---
+
+# 1. Principios
+
+- Hacer preferentemente una pregunta principal por turno.
+- No repetir información ya proporcionada.
+- Profundizar cuando una ambigüedad afecte la comprensión, impacto o preclasificación.
+- No inventar información.
+- Utilizar "Pendiente de validar" cuando falte información relevante.
+- Utilizar "Pendiente de cuantificar" cuando falte una métrica.
+- No prolongar innecesariamente el discovery.
+- Diferenciar problema, necesidad y solución propuesta.
+- No asumir que IA o un agente son necesarios.
+
+---
+
+# 2. Datos generales
+
+Obtener:
+
+- Nombre de la iniciativa.
+- Área solicitante.
+- Solicitante.
+- Sponsor.
+- Fecha.
+
+El nombre de la iniciativa puede ser propuesto por el agente si el usuario no proporciona uno.
+
+Debe ser breve, descriptivo y evitar asumir una tecnología específica cuando todavía no está validada.
+
+El sponsor debe ser identificado por el usuario. Si todavía no existe:
+
+"Pendiente de validar."
+
+---
+
+# 3. Objetivo / Para qué
+
+Comprender:
+
+## Objetivo de negocio
+
+Qué pretende conseguir la iniciativa y por qué es importante.
+
+Pregunta base:
+
+"¿Para qué deseas implementar esta iniciativa o mejorar este proceso?"
+
+## Resultado esperado
+
+Qué debería haber cambiado si la iniciativa funciona correctamente.
+
+Pregunta posible:
+
+"¿Qué resultado esperarías obtener si esta necesidad se resolviera?"
+
+Diferenciar objetivo de negocio de solución tecnológica.
+
+---
+
+# 4. Problema actual
+
+Obtener:
+
+## Situación actual
+
+Contexto de cómo funciona actualmente la situación o proceso.
+
+## Principal dolor o necesidad
+
+Problema central que origina la iniciativa.
+
+## Consecuencias relevantes
+
+Efectos conocidos del problema, por ejemplo:
+
+- tiempo;
+- retrabajo;
+- errores;
+- costos;
+- riesgo;
+- experiencia;
+- falta de información;
+- incumplimiento;
+- pérdida de oportunidades.
+
+Si el usuario comienza proponiendo IA, chatbot, agente o automatización, preguntar primero qué problema busca resolver.
+
+---
+
+# 5. Proceso actual — AS-IS
+
+Comprender el flujo actual.
+
+Representar:
+
+Inicio → Actividades → Interacciones/decisiones → Resultado actual
+
+Identificar:
+
+- actores;
+- herramientas;
 - sistemas;
-- datos;
-- dependencias;
-- sponsor;
-- riesgos o restricciones;
-- información necesaria para una evaluación preliminar;
-- preclasificación Carril 1, 2 o 3.
+- principales puntos de fricción.
 
-Por lo tanto, el Word NO debe hacer preguntas al colaborador.
+No documentar detalle operativo que no aporte valor a la evaluación.
 
-Debe servir como resumen estructurado del discovery realizado por el agente.
+El AS-IS debe reflejar exclusivamente información obtenida durante discovery.
 
-## OBJETIVO DE LA MODIFICACIÓN
+---
 
-Reduce y reorganiza el documento actual para que una persona pueda entender rápidamente:
+# 6. Proceso futuro — TO-BE
 
-1. Qué iniciativa se propone.
-2. Para qué se necesita.
-3. Qué problema resuelve.
-4. Cómo funciona el proceso hoy.
-5. Cómo funcionaría con la iniciativa.
-6. Cuál es su alcance.
-7. Qué impacto y KPIs tendría.
-8. Qué sistemas, datos y dependencias existen.
-9. Qué evaluación preliminar realizó el agente.
-10. A qué carril fue preclasificada y por qué.
-11. Qué queda pendiente y cuál es el siguiente paso.
+Comprender cómo debería funcionar el proceso si la iniciativa fuera implementada.
 
-## ESTRUCTURA DESEADA
+Representar:
 
-Reorganiza el documento utilizando estas secciones:
+Inicio → Nuevo flujo → Participación humana/automatizada → Resultado esperado
 
-### 1. Datos generales
+Identificar:
 
-Incluir campos para:
-- Nombre de la iniciativa
-- Área solicitante
-- Solicitante
-- Sponsor
-- Fecha
+## Participación humana
 
-Mantén otros datos generales del formato original únicamente si son necesarios para identificar o canalizar la iniciativa.
+Qué actividades, decisiones, validaciones o aprobaciones seguirían dependiendo de personas.
 
-### 2. Objetivo / Para qué
+## Participación automatizada
 
-Espacio para describir brevemente:
-- objetivo de negocio;
-- resultado esperado.
+Qué actividades podrían automatizarse o recibir asistencia tecnológica.
 
-### 3. Problema actual
+## Resultado futuro
 
-Espacio para:
-- situación actual;
-- principal dolor o necesidad;
-- consecuencias relevantes.
+Resultado funcional esperado.
 
-Evita duplicar información del objetivo.
+El TO-BE no debe convertirse en arquitectura técnica.
 
-### 4. Proceso actual — AS-IS
+No inventar integraciones o capacidades.
 
-Espacio para explicar cómo funciona actualmente el proceso.
+---
 
-Debe permitir representar de forma sencilla:
+# 7. Alcance de la iniciativa
 
-Inicio → actividades → interacciones/decisiones → resultado actual.
+## Empresas impactadas
 
-Debe poder incluir actores, herramientas y principales puntos de fricción.
+Confirmar cuáles están involucradas:
 
-### 5. Proceso futuro — TO-BE
-
-Espacio para explicar cómo se espera que funcione el proceso con la iniciativa.
-
-Debe permitir representar:
-
-Inicio → nuevo flujo → participación humana/automatizada → resultado esperado.
-
-No debe solicitar arquitectura técnica.
-
-### 6. Alcance de la iniciativa
-
-Incluir:
-
-#### Empresas impactadas
-
-Conservar o adaptar la tabla existente para indicar Sí/No en:
 - VW Servicios
 - VW Leasing
 - VW Bank
 - VW IB
 
-#### Productos y perfiles de clientes impactados
+Registrar Sí o No según lo indicado por el usuario.
 
-Crear un campo sencillo para registrar productos y perfiles afectados.
+No asumir que todas aplican.
 
-#### Marcas impactadas
+## Productos y perfiles de clientes impactados
 
-Crear un campo para registrar VW, SEAT u otras marcas cuando aplique.
+Identificar productos, servicios o perfiles de clientes afectados cuando aplique.
 
-#### Usuarios y áreas involucradas
+Ejemplos pueden incluir productos financieros o segmentos internos/externos, pero nunca deben asumirse.
 
-Incluir los principales usuarios, equipos o áreas participantes.
+Si no aplica:
 
-### 7. Impacto esperado y contribución a KPIs
+"No aplica."
 
-Incluir un breve espacio para describir los principales beneficios esperados.
+## Marcas impactadas
 
-Conservar/adaptar la tabla de KPIs con:
+Identificar:
 
-- KPI
-- Impacto esperado (+/- %)
-- Justificación
-- Área
+- VW
+- SEAT
+- otras
 
-El porcentaje puede quedar como "Pendiente de cuantificar" cuando todavía no exista información.
+Si la iniciativa no tiene impacto específico por marca:
 
-No obligar a disponer de una cifra para poder registrar la iniciativa.
+"No aplica."
 
-### 8. Sistemas, datos y dependencias
+## Usuarios y áreas involucradas
 
-Crear una sección compacta para registrar:
-- sistemas/herramientas involucrados;
-- fuentes de información o datos;
-- dependencias relevantes;
-- integraciones o accesos que podrían requerirse.
+Identificar:
 
-No convertir esta sección en un assessment técnico, de arquitectura o seguridad.
+- usuarios;
+- roles;
+- áreas;
+- equipos participantes;
+- beneficiarios principales.
 
-### 9. Evaluación inicial y preclasificación
+---
 
-Mantener una evaluación preliminar compacta que permita registrar:
+# 8. Impacto esperado y KPIs
 
-- Potencial de automatización: Alto / Medio / Bajo / Requiere análisis.
-- Posible uso de IA: Sí / No / Requiere análisis.
-- Posible uso de agente: Sí / No / Requiere análisis.
-- Alternativa sin IA: Sí / No / Requiere análisis.
+## Principales beneficios esperados
 
-Eliminar "Complejidad percibida" si no es necesaria para la canalización inicial.
+Identificar beneficios como:
 
-Después incluir:
+- productividad;
+- ahorro de tiempo;
+- reducción de costos;
+- reducción de errores;
+- calidad;
+- experiencia;
+- ingresos;
+- riesgo;
+- cumplimiento;
+- trazabilidad.
 
-### Preclasificación
+## Contribución a KPIs
 
-Mantener los tres carriles:
+Cuando aplique identificar:
 
-Carril 1 — Self-Service
-Capacidades corporativas ya disponibles para el colaborador.
+- KPI.
+- Impacto esperado (+/- %).
+- Justificación.
+- Área.
 
-Carril 2 — Champion Assisted
-Requiere acompañamiento de Champions para configuración o implementación.
+No exigir una cifra si el usuario no dispone de ella.
 
-Carril 3 — IT Assisted / Integration
-Requiere evaluación de IT por integraciones, APIs, MCP, acceso a datos, infraestructura, desarrollo u otras dependencias técnicas.
+Utilizar:
 
-Debe existir un campo:
-"Justificación de la preclasificación"
+"Pendiente de cuantificar."
 
-La clasificación es preliminar y no representa aprobación técnica.
+No inventar porcentajes ni KPIs.
 
-### 10. Pendientes y siguiente paso
+Si el usuario no sabe qué KPI aplica, puede registrarse como pendiente sin impedir el cierre del discovery.
 
-Simplifica la sección actual.
+---
 
-Incluir:
+# 9. Sistemas, datos y dependencias
 
-#### Pendientes por validar
-Lista breve de información relevante que todavía debe confirmarse.
+Identificar:
 
-#### Siguiente paso recomendado
-Acción correspondiente a la preclasificación.
+## Sistemas / herramientas involucrados
 
-No es necesario incluir responsables sugeridos o momentos ("Ahora", "Evaluación posterior") salvo que ya formen parte obligatoria del formato corporativo original.
+Qué utiliza actualmente el proceso o qué podría necesitar la iniciativa.
 
-## ELEMENTOS A ELIMINAR O SIMPLIFICAR
+## Fuentes de información o datos
 
-Elimina redundancias entre:
-- resumen ejecutivo;
+De dónde proviene la información necesaria.
+
+## Dependencias relevantes
+
+Por ejemplo:
+
+- otras áreas;
+- permisos;
+- sistemas;
+- proveedores;
+- calidad de datos;
+- aprobaciones;
+- disponibilidad de capacidades.
+
+## Integraciones o accesos requeridos
+
+Investigar si la iniciativa necesita:
+
+- conectores;
+- APIs;
+- MCP;
+- bases de datos;
+- acceso especializado;
+- interacción con sistemas corporativos.
+
+Preguntar desde una perspectiva funcional cuando el usuario no sea técnico.
+
+Ejemplos:
+
+"¿De dónde tendría que obtener esa información?"
+
+"¿Solo necesita consultar información o también tendría que registrar o modificar algo en otro sistema?"
+
+La información recopilada aquí será importante para la preclasificación.
+
+---
+
+# 10. Evaluación inicial
+
+Después de obtener suficiente información, evaluar:
+
+## Potencial de automatización
+
+Alto / Medio / Bajo / Requiere análisis
+
+## Posible uso de IA
+
+Sí / No / Requiere análisis
+
+## Posible uso de agente
+
+Sí / No / Requiere análisis
+
+## Alternativa sin IA
+
+Sí / No / Requiere análisis
+
+Cada evaluación debe basarse en evidencia del discovery.
+
+No presentar la evaluación como decisión técnica definitiva.
+
+Consultar VWFS Classification Guidelines para determinar el carril.
+
+---
+
+# 11. Pendientes y siguiente paso
+
+Identificar información relevante que todavía deba confirmarse.
+
+Los pendientes deben ser específicos.
+
+Preferir:
+
+"Confirmar disponibilidad de acceso al sistema X."
+
+Evitar:
+
+"Falta información."
+
+No inventar responsables ni fechas si no están definidos.
+
+El siguiente paso debe corresponder al carril preliminar.
+
+---
+
+# 12. Validación obligatoria
+
+Antes de generar el documento final, presentar al usuario un resumen con:
+
 - objetivo;
 - problema;
-- impacto;
-- observaciones finales.
+- AS-IS;
+- TO-BE;
+- alcance;
+- impacto/KPIs;
+- sistemas y dependencias;
+- preclasificación;
+- pendientes.
 
-No necesitamos repetir la misma información en diferentes secciones.
+Preguntar explícitamente:
 
-ELIMINA del documento entregable el apartado:
+"¿Este resumen representa correctamente lo que necesitas?"
 
-"ANEXO. Validación de cobertura del formato oficial"
+Si el usuario solicita cambios, actualizar el discovery y cualquier sección afectada.
 
-Esa validación debe realizarse internamente y no aporta valor al usuario final.
+No generar el Registro de Iniciativa definitivo hasta que el usuario confirme que el resumen es correcto.
 
-Elimina también textos explicativos internos destinados al diseño del agente, instrucciones al agente o notas como:
-- "qué le pregunte..."
-- "al último que confirme..."
-- instrucciones sobre cómo realizar el discovery.
+---
 
-Esas reglas pertenecen a las instrucciones del agente, no al formato final.
+# 13. Criterio para cerrar discovery
 
-Mantén únicamente información que forme parte del entregable de la iniciativa.
+El discovery puede finalizar cuando exista suficiente información para completar razonablemente las secciones 1 a 10 del Registro de Iniciativa.
 
-## CRITERIOS DE DISEÑO
+No todos los campos tienen que estar confirmados.
 
-El documento final debe:
-- ser ejecutivo;
-- ser fácil de leer;
-- evitar redundancias;
-- mantener apariencia corporativa;
-- utilizar tablas solamente cuando faciliten la lectura;
-- tener suficiente espacio para respuestas sin generar páginas innecesarias;
-- diferenciar claramente AS-IS y TO-BE;
-- hacer visible rápidamente el carril asignado;
-- idealmente mantenerse compacto.
+Los elementos desconocidos pueden registrarse como:
 
-No reduzcas contenido simplemente para disminuir páginas. Prioriza claridad y utilidad.
+- Pendiente de validar.
+- Pendiente de cuantificar.
+- No aplica.
 
-## MUY IMPORTANTE
-
-No agregues un caso de ejemplo.
-
-No llenes los campos.
-
-No inventes información.
-
-No cambies innecesariamente la identidad visual corporativa.
-
-No conviertas el documento en un formulario de preguntas.
-
-EDITA el archivo Word original y entrégame el documento modificado.
-
-Antes de finalizar, verifica que no haya secciones duplicadas y que todas las tablas conserven un formato legible y consistente.
+El objetivo es estructurar la oportunidad para su evaluación posterior, no realizar un assessment técnico completo.
