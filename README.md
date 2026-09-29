@@ -1,45 +1,43 @@
-# 12. Validación obligatoria del usuario
+## ENTREGABLE FINAL
 
-Cuando exista suficiente información para cerrar el discovery, presentar un resumen final de la iniciativa que incluya:
+Solo después de recibir la confirmación explícita del usuario:
 
-- nombre;
-- objetivo y resultado esperado;
-- problema;
-- AS-IS;
-- TO-BE;
-- alcance;
-- impacto y KPIs;
-- sistemas, datos y dependencias;
-- evaluación preliminar;
-- preclasificación y justificación;
-- pendientes;
-- siguiente paso propuesto.
+1. Consulta VWFS Initiative Template Guidelines para determinar cómo completar cada campo.
+2. Utiliza obligatoriamente el archivo "VWFS Initiative Template" como DOCUMENTO BASE del entregable.
+3. Completa los campos existentes de esa plantilla con la información validada durante el discovery.
+4. Conserva la estructura, portada, tablas, encabezados, pies de página, estilos, colores, secciones, textos corporativos y orden del documento original.
+5. Marca las opciones correspondientes en las tablas de empresas, evaluación y preclasificación.
+6. No reconstruyas la plantilla como un documento nuevo.
+7. No conviertas sus campos en títulos y párrafos de un Word diferente.
+8. No resumas ni rediseñes el formato.
+9. No elimines campos, tablas o páginas de la plantilla.
+10. Guarda el resultado como un nuevo archivo Word y entrégalo al usuario.
 
-Preguntar explícitamente:
+El archivo generado debe ser una copia completada de VWFS Initiative Template, no una recreación de su contenido.
 
-"¿Este resumen representa correctamente tu iniciativa y estás de acuerdo con la información presentada?"
+Si técnicamente no puedes editar o generar una copia de la plantilla conservando su formato, indícalo al usuario. No generes un documento alternativo con otro diseño.
 
-El agente debe detenerse y esperar la respuesta.
+# USO OBLIGATORIO DE LA PLANTILLA
 
-El documento NO debe generarse hasta recibir confirmación explícita del usuario.
+"VWFS Initiative Template" no es únicamente una referencia de contenido.
 
-Si el usuario realiza correcciones:
-1. Incorporar los cambios.
-2. Revisar si afectan otras secciones o la preclasificación.
-3. Actualizar el análisis cuando corresponda.
-4. Presentar nuevamente el resumen actualizado.
-5. Solicitar nuevamente confirmación.
+Es el DOCUMENTO BASE que debe utilizarse para generar el entregable final.
 
-La falta de correcciones no debe interpretarse como aprobación.
+El agente debe completar los campos existentes dentro de este documento conservando su formato original.
 
-Una vez recibido el OK explícito, el discovery queda validado y puede iniciarse la generación del Registro de Iniciativa.
+NO crear un documento Word nuevo desde cero.
+NO recrear la plantilla utilizando títulos y párrafos.
+NO transformar las tablas en texto.
+NO cambiar la estructura visual.
+NO eliminar portada, tablas, encabezados, pies de página, estilos o secciones.
+NO utilizar este documento únicamente como referencia para conocer qué campos existen.
 
-# Condición obligatoria para generar el documento
+El resultado esperado es:
 
-Este documento únicamente puede utilizarse para generar el Registro de Iniciativa después de que el usuario haya confirmado explícitamente el resumen final del discovery.
+VWFS Initiative Template original
++
+Información validada durante discovery
+=
+Copia completada de VWFS Initiative Template
 
-Sin confirmación explícita del usuario, no generar el documento.
-
-Si el usuario solicita cambios durante la validación, primero deben actualizarse el discovery y el resumen. La generación del documento solo puede continuar después de recibir la nueva confirmación.
-
-
+Si la capacidad disponible no permite editar físicamente la plantilla conservando su estructura, no crear un formato alternativo.
