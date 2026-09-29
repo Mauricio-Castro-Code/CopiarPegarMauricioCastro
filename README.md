@@ -1,267 +1,140 @@
-VWFS INITIATIVE TEMPLATE GUIDELINES
+Quiero preparar este documento Word para utilizarlo posteriormente como plantilla en Power Automate mediante la acción "Populate a Microsoft Word template".
 
-1. PROPÓSITO
+IMPORTANTE:
+No quiero que rediseñes, reestructures, resumas ni recrees el documento.
 
-Este documento define cómo VWFS AI Opportunity Discovery Agent debe transformar la información validada durante el discovery en el Formato de Iniciativa.
+Debes conservar exactamente:
+- Portada.
+- Logotipos.
+- Colores.
+- Tipografías.
+- Tamaños.
+- Tablas.
+- Bordes.
+- Encabezados.
+- Pies de página.
+- Saltos de página.
+- Secciones.
+- Textos corporativos.
+- Orden del contenido.
+- Distribución visual actual.
 
-Utiliza VWFS Initiative Template como formato oficial.
+El objetivo es únicamente convertir los espacios que posteriormente recibirán información dinámica en campos identificables para Power Automate.
 
-El contenido del documento debe provenir del discovery confirmado por el usuario.
+Utiliza controles de contenido de texto sin formato (Plain Text Content Controls) siempre que sea posible.
 
-2. REGLAS GENERALES
+Configura los siguientes campos:
 
-- No inventar información.
-- Mantener redacción ejecutiva, clara y breve.
-- Evitar duplicar innecesariamente información.
-- Mantener consistencia entre AS-IS y TO-BE.
-- Mantener consistencia entre dependencias y preclasificación.
-- Utilizar "Pendiente de validar" cuando falte información relevante.
-- Utilizar "Pendiente de cuantificar" cuando falte una métrica.
-- Utilizar "No aplica" cuando el campo no corresponda.
-- No presentar la preclasificación como aprobación técnica.
-- No utilizar ejemplos disponibles en Knowledge como datos de una iniciativa nueva.
+DATOS GENERALES
+- Nombre de la iniciativa → NombreIniciativa
+- Área solicitante → AreaSolicitante
+- Solicitante → Solicitante
+- Sponsor → Sponsor
+- Fecha → Fecha
 
-3. DATOS GENERALES
+OBJETIVO / PARA QUÉ
+- Objetivo de negocio → ObjetivoNegocio
+- Resultado esperado → ResultadoEsperado
 
-Nombre de la iniciativa:
-Utilizar el nombre validado con el usuario.
+PROBLEMA ACTUAL
+- Situación actual → SituacionActual
+- Principal dolor o necesidad → DolorPrincipal
+- Consecuencias relevantes → Consecuencias
 
-Área solicitante:
-Área proporcionada durante discovery.
+PROCESO ACTUAL - AS-IS
+- Flujo actual → FlujoASIS
+- Actores → ActoresASIS
+- Herramientas → HerramientasASIS
+- Principales puntos de fricción → FriccionesASIS
 
-Solicitante:
-Nombre o rol identificado.
+PROCESO FUTURO - TO-BE
+- Flujo futuro esperado → FlujoTOBE
+- Participación humana → ParticipacionHumana
+- Participación automatizada → ParticipacionAutomatizada
+- Resultado futuro → ResultadoFuturo
 
-Sponsor:
-Sponsor confirmado.
-Si todavía no existe:
-"Pendiente de validar."
+ALCANCE
+- VW Servicios Sí → VWServiciosSi
+- VW Servicios No → VWServiciosNo
+- VW Leasing Sí → VWLeasingSi
+- VW Leasing No → VWLeasingNo
+- VW Bank Sí → VWBankSi
+- VW Bank No → VWBankNo
+- VW IB Sí → VWIBSi
+- VW IB No → VWIBNo
+- Productos y perfiles de clientes impactados → ProductosPerfiles
+- Marcas impactadas → Marcas
+- Usuarios y áreas involucradas → UsuariosAreas
 
-Fecha:
-Utilizar la fecha correspondiente al registro de la iniciativa.
+IMPACTO
+- Principales beneficios esperados → Beneficios
 
-4. OBJETIVO / PARA QUÉ
+Para la tabla de KPIs conservar exactamente las columnas:
+KPI | Impacto esperado (+/- %) | Justificación | Área
 
-Objetivo de negocio:
-Explicar qué pretende conseguir la iniciativa y por qué resulta relevante.
+Si es técnicamente posible, preparar la fila de datos mediante Repeating Section Content Control para permitir múltiples KPIs.
 
-Resultado esperado:
-Describir qué debería cambiar o mejorar si la iniciativa funciona correctamente.
+Dentro de la fila utilizar:
+- KPI → KPI
+- Impacto esperado → ImpactoKPI
+- Justificación → JustificacionKPI
+- Área → AreaKPI
 
-No convertir el objetivo en una descripción de tecnología.
+SISTEMAS, DATOS Y DEPENDENCIAS
+- Sistemas / herramientas involucrados → Sistemas
+- Fuentes de información o datos → FuentesDatos
+- Dependencias relevantes → Dependencias
+- Integraciones o accesos requeridos → Integraciones
 
-5. PROBLEMA ACTUAL
-
-Situación actual:
-Describir brevemente el contexto actual.
-
-Principal dolor o necesidad:
-Expresar claramente el problema central.
-
-Consecuencias relevantes:
-Describir los principales efectos identificados durante discovery.
-
-No inventar consecuencias.
-
-6. PROCESO ACTUAL - AS-IS
-
-Flujo actual:
-Representar el proceso de forma clara.
-
-Preferentemente:
-
-Inicio → Actividades → Interacciones/decisiones → Resultado actual
-
-Actores:
-Registrar usuarios, roles o áreas participantes.
-
-Herramientas:
-Registrar herramientas y sistemas utilizados actualmente.
-
-Principales puntos de fricción:
-Registrar problemas identificados en el flujo actual.
-
-7. PROCESO FUTURO - TO-BE
-
-Flujo futuro esperado:
-Representar el escenario futuro definido durante discovery.
-
-Preferentemente:
-
-Inicio → Nuevo flujo → Participación humana/automatizada → Resultado esperado
-
-Participación humana:
-Indicar actividades, decisiones, validaciones o supervisión que permanecen bajo responsabilidad humana.
-
-Participación automatizada:
-Indicar actividades que podrían automatizarse o recibir asistencia.
-
-Resultado futuro:
-Describir el resultado funcional esperado.
-
-No diseñar arquitectura técnica.
-
-8. ALCANCE DE LA INICIATIVA
-
-Empresas impactadas:
-Indicar según corresponda:
-
-- VW Servicios.
-- VW Leasing.
-- VW Bank.
-- VW IB.
-
-No asumir empresas no mencionadas o confirmadas.
-
-Productos y perfiles de clientes impactados:
-Registrar los identificados durante discovery.
-
-Si no aplica:
-"No aplica."
-
-Marcas impactadas:
-Registrar VW, SEAT u otras según corresponda.
-
-Si no aplica:
-"No aplica."
-
-Usuarios y áreas involucradas:
-Registrar usuarios, roles, equipos y áreas relevantes.
-
-9. IMPACTO ESPERADO Y CONTRIBUCIÓN A KPIs
-
-Principales beneficios esperados:
-Resumir los beneficios identificados.
-
-Contribución a KPIs:
-
-KPI:
-Registrar el indicador identificado.
-
-Impacto esperado:
-Registrar la cifra proporcionada cuando exista.
-Si todavía no puede cuantificarse:
-"Pendiente de cuantificar."
-
-Justificación:
-Explicar brevemente la relación entre la iniciativa y el KPI.
-
-Área:
-Registrar el área correspondiente cuando se conozca.
-
-No inventar KPIs o porcentajes.
-
-No es obligatorio utilizar todas las filas disponibles.
-
-10. SISTEMAS, DATOS Y DEPENDENCIAS
-
-Sistemas / herramientas involucrados:
-Registrar los sistemas o herramientas identificados.
-
-Fuentes de información o datos:
-Registrar las fuentes necesarias.
-
-Dependencias relevantes:
-Registrar áreas, permisos, sistemas, disponibilidad de información u otras dependencias.
-
-Integraciones o accesos requeridos:
-Registrar conectores, APIs, MCP, accesos o integraciones cuando hayan sido identificados.
-
-Cuando algo todavía deba confirmarse indicarlo como pendiente.
-
-11. EVALUACIÓN INICIAL
-
-Completar la evaluación preliminar con base en el discovery.
+EVALUACIÓN INICIAL
 
 Potencial de automatización:
-Alto / Medio / Bajo / Requiere análisis
+- Alto → AutomatizacionAlto
+- Medio → AutomatizacionMedio
+- Bajo → AutomatizacionBajo
+- Requiere análisis → AutomatizacionAnalisis
 
 Posible uso de IA:
-Sí / No / Requiere análisis
+- Sí → IASi
+- No → IANo
+- Requiere análisis → IAAnalisis
 
 Posible uso de agente:
-Sí / No / Requiere análisis
+- Sí → AgenteSi
+- No → AgenteNo
+- Requiere análisis → AgenteAnalisis
 
 Alternativa sin IA:
-Sí / No / Requiere análisis
+- Sí → SinIASi
+- No → SinIANo
+- Requiere análisis → SinIAAnalisis
 
-No favorecer automáticamente IA o agentes.
+PRECLASIFICACIÓN
+- Carril 1 - Self-Service → Carril1Marca
+- Carril 2 - Champion Assisted → Carril2Marca
+- Carril 3 - IT Assisted / Integration → Carril3Marca
+- Justificación → JustificacionCarril
 
-12. PRECLASIFICACIÓN
+PENDIENTES Y SIGUIENTE PASO
+- Pendientes por validar → Pendientes
+- Siguiente paso recomendado → SiguientePaso
+- Carril mostrado en el resumen final → Carril
 
-Consultar VWFS Classification Guidelines.
+REGLAS TÉCNICAS:
 
-Seleccionar:
+1. Cada Content Control debe tener un título único exactamente igual al nombre especificado.
+2. No utilizar espacios, acentos ni caracteres especiales en los nombres de los Content Controls.
+3. Para campos que pueden contener textos extensos, habilitar múltiples párrafos/retornos de carro cuando corresponda.
+4. No utilizar Checkbox Content Controls para campos que serán llenados por Power Automate.
+5. Para opciones Sí/No, evaluación y carriles utilizar Plain Text Content Controls que posteriormente puedan recibir "X" o quedar vacíos.
+6. No escribir valores ficticios dentro de los campos.
+7. No eliminar textos fijos de la plantilla.
+8. No modificar el contenido corporativo.
+9. No agregar nuevas secciones.
+10. No cambiar la estructura visual.
+11. No generar todavía información de ninguna iniciativa.
+12. No completar los campos con ejemplos.
 
-Carril 1 - Self-Service
+El resultado debe seguir viéndose prácticamente idéntico al documento original. La única modificación debe ser la incorporación de los Content Controls necesarios para que posteriormente Power Automate pueda rellenarlo.
 
-o
-
-Carril 2 - Champion Assisted
-
-o
-
-Carril 3 - IT Assisted / Integration
-
-Justificación de la preclasificación:
-Explicar brevemente por qué corresponde el carril seleccionado.
-
-Cuando exista una condición que pueda modificar el carril, mencionarla.
-
-La clasificación es preliminar y no representa aprobación técnica.
-
-13. PENDIENTES Y SIGUIENTE PASO
-
-Pendientes por validar:
-Registrar únicamente pendientes relevantes.
-
-Deben ser específicos y accionables.
-
-Ejemplo:
-
-"Confirmar disponibilidad de acceso al sistema X."
-
-Siguiente paso recomendado:
-
-Carril 1:
-Continuar mediante capacidades self-service disponibles.
-
-Carril 2:
-Continuar con acompañamiento de Champions.
-
-Carril 3:
-Continuar con evaluación de IT sobre las dependencias identificadas.
-
-No prometer aprobación o implementación.
-
-14. CONSISTENCIA
-
-Antes de generar el entregable verificar:
-
-- Objetivo coherente con el problema.
-- AS-IS coherente con la situación actual.
-- TO-BE coherente con el resultado esperado.
-- Beneficios relacionados con el problema.
-- KPIs no inventados.
-- Sistemas y dependencias basados en discovery.
-- Preclasificación consistente con VWFS Classification Guidelines.
-- Pendientes claramente identificados.
-- Siguiente paso consistente con el carril.
-
-Esta revisión es interna y no debe agregarse como anexo.
-
-15. VALIDACIÓN DEL USUARIO
-
-El Formato de Iniciativa solo debe generarse después de que el usuario haya confirmado explícitamente el resumen final presentado por el agente.
-
-Si el usuario solicita modificaciones, primero actualizar la información correspondiente.
-
-Una vez confirmado el resumen, utilizar la información validada para completar VWFS Initiative Template.
-
-16. RESULTADO ESPERADO
-
-El Formato de Iniciativa debe permitir que una persona que no participó en el discovery comprenda:
-
-Problema → Objetivo → AS-IS → TO-BE → Alcance → Impacto → Dependencias → Preclasificación → Siguiente paso
-
-El documento facilita la evaluación y canalización de la iniciativa. No sustituye validaciones técnicas, de seguridad, arquitectura, Compliance, presupuesto o negocio.
+Antes de realizar cualquier cambio que implique alterar la estructura visual del documento, conserva la estructura original y prioriza la compatibilidad con Power Automate.
