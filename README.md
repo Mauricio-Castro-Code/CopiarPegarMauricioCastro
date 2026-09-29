@@ -1,127 +1,254 @@
-Analiza el documento adjunto "Registro de Iniciativas".
-
-Actualmente este documento se utiliza para registrar iniciativas, pero quiero transformarlo en una plantilla mucho más simple que funcione como ENTREGABLE FINAL de un agente llamado "VWFS AI Opportunity Discovery Agent".
-
-El agente conversa con un colaborador para realizar un discovery de su iniciativa y recopila información sobre:
-
-- Para qué quiere realizar la iniciativa.
-- Problema actual.
-- Cómo se realiza el proceso actualmente (AS-IS).
-- Cómo debería funcionar en el futuro (TO-BE).
-- Impacto esperado.
-- Usuarios y áreas involucradas.
-- Frecuencia y volumen, cuando sean relevantes.
-- Sistemas, herramientas y datos involucrados.
-- Dependencias.
-- Riesgos o restricciones.
-- Potencial de automatización.
-- Posible uso de IA.
-- Posible uso de un agente.
-- Posibilidad de resolverlo sin IA.
-- Preclasificación de la iniciativa.
-
-La preclasificación utiliza tres carriles:
-
-Carril 1 — Self-Service:
-La iniciativa puede implementarse principalmente con capacidades corporativas ya disponibles para el colaborador.
-
-Carril 2 — Champion Assisted:
-La iniciativa requiere acompañamiento de Champions para configuración o implementación.
-
-Carril 3 — IT Assisted / Integration:
-La iniciativa requiere apoyo de IT por integraciones, conectores, APIs, MCP, acceso a datos, infraestructura, desarrollo u otras dependencias técnicas.
+Quiero que modifiques DIRECTAMENTE el documento Word adjunto para convertirlo en el formato oficial de salida de un agente llamado "VWFS AI Opportunity Discovery Agent".
 
 IMPORTANTE:
-El documento final NO debe ser un cuestionario para que el colaborador llene.
+- Debes EDITAR el archivo Word existente, no crear una plantilla completamente diferente.
+- Conserva el estilo visual, identidad, encabezados, colores, tablas y formato corporativo del documento original siempre que sea posible.
+- Simplifica su contenido y estructura.
+- El resultado debe ser una ficha ejecutiva de iniciativa, no un cuestionario.
+- No llenes el documento con información de una iniciativa ficticia.
+- Déjalo como PLANTILLA VACÍA lista para ser completada posteriormente por el agente.
+- No agregues información que no esté solicitada en estas instrucciones.
 
-El agente ya realizó las preguntas durante la conversación.
+## CONTEXTO
 
-El documento debe ser un RESUMEN EJECUTIVO Y ESTRUCTURADO de lo descubierto, listo para que otro equipo pueda entender, evaluar y canalizar la iniciativa.
+VWFS AI Opportunity Discovery Agent realiza una conversación previa con el colaborador.
 
-## TU TAREA
+Durante esa conversación obtiene:
+- objetivo;
+- problema;
+- proceso actual;
+- proceso futuro;
+- impacto esperado;
+- usuarios y áreas;
+- empresas impactadas;
+- productos y perfiles de clientes impactados;
+- marcas impactadas;
+- KPIs;
+- sistemas;
+- datos;
+- dependencias;
+- sponsor;
+- riesgos o restricciones;
+- información necesaria para una evaluación preliminar;
+- preclasificación Carril 1, 2 o 3.
 
-Primero analiza la estructura COMPLETA del documento original.
+Por lo tanto, el Word NO debe hacer preguntas al colaborador.
 
-Después evalúa cada sección y campo utilizando estas categorías:
+Debe servir como resumen estructurado del discovery realizado por el agente.
 
-1. MANTENER
-Información necesaria para comprender, evaluar o canalizar la iniciativa.
+## OBJETIVO DE LA MODIFICACIÓN
 
-2. SIMPLIFICAR
-Información útil, pero que puede reducirse, combinarse con otra sección o expresarse de forma más sencilla.
+Reduce y reorganiza el documento actual para que una persona pueda entender rápidamente:
 
-3. ELIMINAR
-Información redundante, demasiado administrativa, excesivamente técnica para esta etapa o que no aporta valor al discovery inicial.
+1. Qué iniciativa se propone.
+2. Para qué se necesita.
+3. Qué problema resuelve.
+4. Cómo funciona el proceso hoy.
+5. Cómo funcionaría con la iniciativa.
+6. Cuál es su alcance.
+7. Qué impacto y KPIs tendría.
+8. Qué sistemas, datos y dependencias existen.
+9. Qué evaluación preliminar realizó el agente.
+10. A qué carril fue preclasificada y por qué.
+11. Qué queda pendiente y cuál es el siguiente paso.
 
-4. MOVER A EVALUACIÓN POSTERIOR
-Información que puede ser importante, pero corresponde a una fase posterior de análisis técnico, seguridad, arquitectura, implementación, priorización o aprobación.
+## ESTRUCTURA DESEADA
 
-Para cada sección del documento original explícame:
+Reorganiza el documento utilizando estas secciones:
 
-- Nombre de la sección/campo.
-- Recomendación: MANTENER / SIMPLIFICAR / ELIMINAR / MOVER A EVALUACIÓN POSTERIOR.
-- Motivo.
-- Si debe combinarse con otra sección, indica con cuál.
+### 1. Datos generales
 
-## CRITERIOS DE SIMPLIFICACIÓN
+Incluir campos para:
+- Nombre de la iniciativa
+- Área solicitante
+- Solicitante
+- Sponsor
+- Fecha
 
-La nueva plantilla debe:
+Mantén otros datos generales del formato original únicamente si son necesarios para identificar o canalizar la iniciativa.
 
-- Poder entenderse rápidamente.
-- Evitar duplicidad.
-- Evitar preguntas que el agente ya resolvió durante discovery.
-- Separar claramente AS-IS y TO-BE.
-- Mostrar claramente el problema y objetivo.
-- Mostrar el impacto esperado.
-- Identificar usuarios/áreas.
-- Identificar sistemas, datos y dependencias relevantes.
-- Mostrar pendientes importantes.
-- Incluir la preclasificación Carril 1, 2 o 3 y su justificación.
-- Permitir que Champions, IT o el equipo evaluador comprendan rápidamente por qué la iniciativa fue enviada a determinado carril.
-- Evitar convertir el documento en un assessment técnico completo.
-- Evitar información que debería solicitarse únicamente después de decidir que la iniciativa continuará.
+### 2. Objetivo / Para qué
 
-No elimines información únicamente para hacer el documento más corto. Elimina o combina información cuando no aporte valor en esta etapa.
+Espacio para describir brevemente:
+- objetivo de negocio;
+- resultado esperado.
 
-## DESPUÉS DEL ANÁLISIS
+### 3. Problema actual
 
-Propón una NUEVA estructura simplificada.
+Espacio para:
+- situación actual;
+- principal dolor o necesidad;
+- consecuencias relevantes.
 
-Intenta que tenga aproximadamente entre 7 y 10 secciones principales.
+Evita duplicar información del objetivo.
 
-Considera como referencia conceptual una estructura similar a:
+### 4. Proceso actual — AS-IS
 
-1. Información General
-2. Objetivo / Para qué
-3. Problema Actual
-4. Proceso Actual — AS-IS
-5. Proceso Futuro — TO-BE
-6. Impacto Esperado
-7. Usuarios y Áreas Involucradas
-8. Sistemas, Datos y Dependencias
-9. Evaluación y Preclasificación
-10. Pendientes / Siguientes Pasos
+Espacio para explicar cómo funciona actualmente el proceso.
 
-No estás obligado a utilizar exactamente esta estructura. Si el documento original contiene información que justifique otra organización, propón una mejor.
+Debe permitir representar de forma sencilla:
 
-## SALIDA ESPERADA
+Inicio → actividades → interacciones/decisiones → resultado actual.
 
-Entrega tu respuesta en 3 partes:
+Debe poder incluir actores, herramientas y principales puntos de fricción.
 
-PARTE 1 — Diagnóstico del documento actual
-Explica brevemente qué problemas tiene como formato de salida para el agente: longitud, redundancia, información prematura, etc.
+### 5. Proceso futuro — TO-BE
 
-PARTE 2 — Qué conservar, simplificar, eliminar o mover
-Analiza sección por sección y campo por campo el documento original.
+Espacio para explicar cómo se espera que funcione el proceso con la iniciativa.
 
-PARTE 3 — Nueva plantilla propuesta
-Presenta la estructura final simplificada, incluyendo:
-- Nombre de cada sección.
-- Campos que contendría.
-- Breve explicación de qué información debe colocar el agente.
+Debe permitir representar:
 
-No llenes la plantilla con un caso ficticio.
+Inicio → nuevo flujo → participación humana/automatizada → resultado esperado.
 
-No diseñes todavía el documento Word.
+No debe solicitar arquitectura técnica.
 
-Primero quiero decidir QUÉ información debe contener el nuevo formato.
+### 6. Alcance de la iniciativa
+
+Incluir:
+
+#### Empresas impactadas
+
+Conservar o adaptar la tabla existente para indicar Sí/No en:
+- VW Servicios
+- VW Leasing
+- VW Bank
+- VW IB
+
+#### Productos y perfiles de clientes impactados
+
+Crear un campo sencillo para registrar productos y perfiles afectados.
+
+#### Marcas impactadas
+
+Crear un campo para registrar VW, SEAT u otras marcas cuando aplique.
+
+#### Usuarios y áreas involucradas
+
+Incluir los principales usuarios, equipos o áreas participantes.
+
+### 7. Impacto esperado y contribución a KPIs
+
+Incluir un breve espacio para describir los principales beneficios esperados.
+
+Conservar/adaptar la tabla de KPIs con:
+
+- KPI
+- Impacto esperado (+/- %)
+- Justificación
+- Área
+
+El porcentaje puede quedar como "Pendiente de cuantificar" cuando todavía no exista información.
+
+No obligar a disponer de una cifra para poder registrar la iniciativa.
+
+### 8. Sistemas, datos y dependencias
+
+Crear una sección compacta para registrar:
+- sistemas/herramientas involucrados;
+- fuentes de información o datos;
+- dependencias relevantes;
+- integraciones o accesos que podrían requerirse.
+
+No convertir esta sección en un assessment técnico, de arquitectura o seguridad.
+
+### 9. Evaluación inicial y preclasificación
+
+Mantener una evaluación preliminar compacta que permita registrar:
+
+- Potencial de automatización: Alto / Medio / Bajo / Requiere análisis.
+- Posible uso de IA: Sí / No / Requiere análisis.
+- Posible uso de agente: Sí / No / Requiere análisis.
+- Alternativa sin IA: Sí / No / Requiere análisis.
+
+Eliminar "Complejidad percibida" si no es necesaria para la canalización inicial.
+
+Después incluir:
+
+### Preclasificación
+
+Mantener los tres carriles:
+
+Carril 1 — Self-Service
+Capacidades corporativas ya disponibles para el colaborador.
+
+Carril 2 — Champion Assisted
+Requiere acompañamiento de Champions para configuración o implementación.
+
+Carril 3 — IT Assisted / Integration
+Requiere evaluación de IT por integraciones, APIs, MCP, acceso a datos, infraestructura, desarrollo u otras dependencias técnicas.
+
+Debe existir un campo:
+"Justificación de la preclasificación"
+
+La clasificación es preliminar y no representa aprobación técnica.
+
+### 10. Pendientes y siguiente paso
+
+Simplifica la sección actual.
+
+Incluir:
+
+#### Pendientes por validar
+Lista breve de información relevante que todavía debe confirmarse.
+
+#### Siguiente paso recomendado
+Acción correspondiente a la preclasificación.
+
+No es necesario incluir responsables sugeridos o momentos ("Ahora", "Evaluación posterior") salvo que ya formen parte obligatoria del formato corporativo original.
+
+## ELEMENTOS A ELIMINAR O SIMPLIFICAR
+
+Elimina redundancias entre:
+- resumen ejecutivo;
+- objetivo;
+- problema;
+- impacto;
+- observaciones finales.
+
+No necesitamos repetir la misma información en diferentes secciones.
+
+ELIMINA del documento entregable el apartado:
+
+"ANEXO. Validación de cobertura del formato oficial"
+
+Esa validación debe realizarse internamente y no aporta valor al usuario final.
+
+Elimina también textos explicativos internos destinados al diseño del agente, instrucciones al agente o notas como:
+- "qué le pregunte..."
+- "al último que confirme..."
+- instrucciones sobre cómo realizar el discovery.
+
+Esas reglas pertenecen a las instrucciones del agente, no al formato final.
+
+Mantén únicamente información que forme parte del entregable de la iniciativa.
+
+## CRITERIOS DE DISEÑO
+
+El documento final debe:
+- ser ejecutivo;
+- ser fácil de leer;
+- evitar redundancias;
+- mantener apariencia corporativa;
+- utilizar tablas solamente cuando faciliten la lectura;
+- tener suficiente espacio para respuestas sin generar páginas innecesarias;
+- diferenciar claramente AS-IS y TO-BE;
+- hacer visible rápidamente el carril asignado;
+- idealmente mantenerse compacto.
+
+No reduzcas contenido simplemente para disminuir páginas. Prioriza claridad y utilidad.
+
+## MUY IMPORTANTE
+
+No agregues un caso de ejemplo.
+
+No llenes los campos.
+
+No inventes información.
+
+No cambies innecesariamente la identidad visual corporativa.
+
+No conviertas el documento en un formulario de preguntas.
+
+EDITA el archivo Word original y entrégame el documento modificado.
+
+Antes de finalizar, verifica que no haya secciones duplicadas y que todas las tablas conserven un formato legible y consistente.
