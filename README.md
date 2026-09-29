@@ -1,172 +1,193 @@
-# VWFS Discovery Guidelines
+# VWFS Initiative Template Guidelines
 
 ## Propósito
 
-Este documento define la metodología que debe seguir VWFS AI Opportunity Discovery Agent para recopilar la información necesaria para completar el Registro de Iniciativa oficial.
+Este documento define cómo VWFS AI Opportunity Discovery Agent debe completar el Registro de Iniciativa oficial utilizando exclusivamente la información obtenida y validada durante discovery.
 
-El discovery debe ser consultivo, breve y adaptativo. No debe sentirse como un cuestionario.
+La plantilla oficial es la estructura de salida.
 
-El agente no necesita preguntar cada campo literalmente. Debe aprovechar toda la información proporcionada durante la conversación y preguntar únicamente lo que falte o necesite aclaración.
-
----
-
-# 1. Principios
-
-- Hacer preferentemente una pregunta principal por turno.
-- No repetir información ya proporcionada.
-- Profundizar cuando una ambigüedad afecte la comprensión, impacto o preclasificación.
-- No inventar información.
-- Utilizar "Pendiente de validar" cuando falte información relevante.
-- Utilizar "Pendiente de cuantificar" cuando falte una métrica.
-- No prolongar innecesariamente el discovery.
-- Diferenciar problema, necesidad y solución propuesta.
-- No asumir que IA o un agente son necesarios.
+No modificar, eliminar, reordenar o crear secciones diferentes salvo que exista instrucción corporativa expresa.
 
 ---
 
-# 2. Datos generales
+# Reglas generales
 
-Obtener:
+- Utilizar únicamente información obtenida durante discovery.
+- No inventar datos.
+- No copiar ejemplos de Knowledge como información real.
+- Mantener redacción ejecutiva, clara y breve.
+- Evitar repetir la misma información en diferentes secciones.
+- Distinguir hechos confirmados de pendientes.
+- Utilizar "Pendiente de validar" cuando falte información.
+- Utilizar "Pendiente de cuantificar" para métricas desconocidas.
+- Utilizar "No aplica" únicamente cuando se haya determinado que un campo no corresponde.
+- No realizar afirmaciones técnicas definitivas que no hayan sido validadas.
 
-- Nombre de la iniciativa.
-- Área solicitante.
-- Solicitante.
-- Sponsor.
-- Fecha.
+---
 
-El nombre de la iniciativa puede ser propuesto por el agente si el usuario no proporciona uno.
+# Portada
 
-Debe ser breve, descriptivo y evitar asumir una tecnología específica cuando todavía no está validada.
+## Nombre de la iniciativa
 
-El sponsor debe ser identificado por el usuario. Si todavía no existe:
+Utilizar el nombre validado con el usuario.
+
+Si el agente propone el título, debe ser descriptivo y neutral respecto a tecnología cuando la tecnología todavía no esté confirmada.
+
+No modificar campos corporativos como:
+
+- Gerencia
+- Clasificación
+- Versión
+- Vigente desde
+- Título
+
+salvo que exista una instrucción explícita para hacerlo.
+
+## Historial de cambios
+
+No inventar versiones, autores o comentarios.
+
+Completar únicamente cuando el proceso definido permita determinar esos datos.
+
+---
+
+# 1. Datos generales
+
+## Nombre de la iniciativa
+
+Nombre validado.
+
+## Área solicitante
+
+Área proporcionada por el usuario.
+
+## Solicitante
+
+Nombre o rol del solicitante según la información disponible.
+
+## Sponsor
+
+Sponsor confirmado.
+
+Si no existe todavía:
 
 "Pendiente de validar."
 
+## Fecha
+
+Fecha correspondiente a la generación o registro, según el proceso corporativo definido.
+
 ---
 
-# 3. Objetivo / Para qué
-
-Comprender:
+# 2. Objetivo / Para qué
 
 ## Objetivo de negocio
 
-Qué pretende conseguir la iniciativa y por qué es importante.
+Explicar qué pretende conseguir la iniciativa y por qué resulta relevante para el negocio.
 
-Pregunta base:
-
-"¿Para qué deseas implementar esta iniciativa o mejorar este proceso?"
+No describir aquí la solución técnica.
 
 ## Resultado esperado
 
-Qué debería haber cambiado si la iniciativa funciona correctamente.
+Describir qué debería mejorar o cambiar si la iniciativa funciona correctamente.
 
-Pregunta posible:
-
-"¿Qué resultado esperarías obtener si esta necesidad se resolviera?"
-
-Diferenciar objetivo de negocio de solución tecnológica.
+Evitar repetir literalmente el objetivo.
 
 ---
 
-# 4. Problema actual
-
-Obtener:
+# 3. Problema actual
 
 ## Situación actual
 
-Contexto de cómo funciona actualmente la situación o proceso.
+Describir de forma ejecutiva el contexto actual.
 
 ## Principal dolor o necesidad
 
-Problema central que origina la iniciativa.
+Identificar claramente el problema central.
 
 ## Consecuencias relevantes
 
-Efectos conocidos del problema, por ejemplo:
+Registrar efectos conocidos del problema.
 
-- tiempo;
-- retrabajo;
-- errores;
-- costos;
-- riesgo;
-- experiencia;
-- falta de información;
-- incumplimiento;
-- pérdida de oportunidades.
-
-Si el usuario comienza proponiendo IA, chatbot, agente o automatización, preguntar primero qué problema busca resolver.
+No inventar causas ni consecuencias.
 
 ---
 
-# 5. Proceso actual — AS-IS
+# 4. Proceso actual — AS-IS
 
-Comprender el flujo actual.
+## Flujo actual
 
-Representar:
+Representar preferentemente:
 
 Inicio → Actividades → Interacciones/decisiones → Resultado actual
 
-Identificar:
+El flujo debe poder comprenderse sin haber participado en la conversación.
 
-- actores;
-- herramientas;
-- sistemas;
-- principales puntos de fricción.
+## Actores
 
-No documentar detalle operativo que no aporte valor a la evaluación.
+Usuarios, roles o áreas que participan actualmente.
 
-El AS-IS debe reflejar exclusivamente información obtenida durante discovery.
+## Herramientas
+
+Sistemas, aplicaciones o herramientas utilizadas actualmente.
+
+## Principales puntos de fricción
+
+Registrar únicamente los identificados durante discovery.
+
+Ejemplos:
+
+- actividad manual;
+- espera;
+- duplicidad;
+- error;
+- retrabajo;
+- falta de integración.
 
 ---
 
-# 6. Proceso futuro — TO-BE
+# 5. Proceso futuro — TO-BE
 
-Comprender cómo debería funcionar el proceso si la iniciativa fuera implementada.
+## Flujo futuro esperado
 
 Representar:
 
 Inicio → Nuevo flujo → Participación humana/automatizada → Resultado esperado
 
-Identificar:
+No diseñar arquitectura técnica.
 
 ## Participación humana
 
-Qué actividades, decisiones, validaciones o aprobaciones seguirían dependiendo de personas.
+Describir actividades, validaciones, decisiones o supervisión humana esperada.
 
 ## Participación automatizada
 
-Qué actividades podrían automatizarse o recibir asistencia tecnológica.
+Describir funcionalmente las actividades que podrían automatizarse o recibir asistencia.
+
+No afirmar que una tecnología específica será utilizada salvo que esté validada.
 
 ## Resultado futuro
 
-Resultado funcional esperado.
-
-El TO-BE no debe convertirse en arquitectura técnica.
-
-No inventar integraciones o capacidades.
+Resultado funcional esperado del nuevo proceso.
 
 ---
 
-# 7. Alcance de la iniciativa
+# 6. Alcance de la iniciativa
 
 ## Empresas impactadas
 
-Confirmar cuáles están involucradas:
+Marcar Sí o No exclusivamente según información validada:
 
 - VW Servicios
 - VW Leasing
 - VW Bank
 - VW IB
 
-Registrar Sí o No según lo indicado por el usuario.
-
-No asumir que todas aplican.
+No dejar marcada una empresa por inferencia.
 
 ## Productos y perfiles de clientes impactados
 
-Identificar productos, servicios o perfiles de clientes afectados cuando aplique.
-
-Ejemplos pueden incluir productos financieros o segmentos internos/externos, pero nunca deben asumirse.
+Registrar únicamente los identificados.
 
 Si no aplica:
 
@@ -174,195 +195,206 @@ Si no aplica:
 
 ## Marcas impactadas
 
-Identificar:
+Registrar VW, SEAT u otras cuando corresponda.
 
-- VW
-- SEAT
-- otras
-
-Si la iniciativa no tiene impacto específico por marca:
+Si no existe impacto específico por marca:
 
 "No aplica."
 
 ## Usuarios y áreas involucradas
 
-Identificar:
+Registrar usuarios, roles, equipos o áreas relevantes.
 
-- usuarios;
-- roles;
-- áreas;
-- equipos participantes;
-- beneficiarios principales.
+Evitar incluir personas o áreas solamente porque podrían participar posteriormente.
 
 ---
 
-# 8. Impacto esperado y KPIs
+# 7. Impacto esperado y contribución a KPIs
 
 ## Principales beneficios esperados
 
-Identificar beneficios como:
+Resumir los beneficios más relevantes.
 
-- productividad;
-- ahorro de tiempo;
-- reducción de costos;
-- reducción de errores;
-- calidad;
-- experiencia;
-- ingresos;
-- riesgo;
-- cumplimiento;
-- trazabilidad.
+Preferir beneficios concretos y vinculados al problema.
 
-## Contribución a KPIs
+## Tabla de KPIs
 
-Cuando aplique identificar:
+### KPI
 
-- KPI.
-- Impacto esperado (+/- %).
-- Justificación.
-- Área.
+Registrar el indicador identificado.
 
-No exigir una cifra si el usuario no dispone de ella.
+### Impacto esperado (+/- %)
 
-Utilizar:
+Utilizar la cifra proporcionada por el usuario cuando exista.
+
+Si se espera impacto pero todavía no está cuantificado:
 
 "Pendiente de cuantificar."
 
-No inventar porcentajes ni KPIs.
+Nunca inventar porcentajes.
 
-Si el usuario no sabe qué KPI aplica, puede registrarse como pendiente sin impedir el cierre del discovery.
+### Justificación
+
+Explicar brevemente por qué la iniciativa podría contribuir al KPI.
+
+### Área
+
+Registrar el área relacionada con el KPI cuando se conozca.
+
+Si no se conoce:
+
+"Pendiente de validar."
+
+No es obligatorio llenar todas las filas disponibles.
 
 ---
 
-# 9. Sistemas, datos y dependencias
-
-Identificar:
+# 8. Sistemas, datos y dependencias
 
 ## Sistemas / herramientas involucrados
 
-Qué utiliza actualmente el proceso o qué podría necesitar la iniciativa.
+Registrar sistemas actuales y, cuando esté claramente identificado, capacidades necesarias para el futuro.
+
+Diferenciar entre existente y potencial cuando sea necesario.
 
 ## Fuentes de información o datos
 
-De dónde proviene la información necesaria.
+Registrar fuentes identificadas durante discovery.
 
 ## Dependencias relevantes
 
-Por ejemplo:
-
-- otras áreas;
-- permisos;
-- sistemas;
-- proveedores;
-- calidad de datos;
-- aprobaciones;
-- disponibilidad de capacidades.
+Registrar dependencias que puedan afectar la viabilidad o canalización.
 
 ## Integraciones o accesos requeridos
 
-Investigar si la iniciativa necesita:
+Registrar integraciones, APIs, conectores, MCP, permisos o accesos únicamente cuando hayan sido identificados.
 
-- conectores;
-- APIs;
-- MCP;
-- bases de datos;
-- acceso especializado;
-- interacción con sistemas corporativos.
-
-Preguntar desde una perspectiva funcional cuando el usuario no sea técnico.
-
-Ejemplos:
-
-"¿De dónde tendría que obtener esa información?"
-
-"¿Solo necesita consultar información o también tendría que registrar o modificar algo en otro sistema?"
-
-La información recopilada aquí será importante para la preclasificación.
+Si todavía debe comprobarse su disponibilidad, indicarlo explícitamente.
 
 ---
 
-# 10. Evaluación inicial
+# 9. Evaluación inicial y preclasificación
 
-Después de obtener suficiente información, evaluar:
+## Evaluación preliminar
 
-## Potencial de automatización
+Seleccionar una sola opción por criterio.
+
+### Potencial de automatización
 
 Alto / Medio / Bajo / Requiere análisis
 
-## Posible uso de IA
+### Posible uso de IA
 
 Sí / No / Requiere análisis
 
-## Posible uso de agente
+### Posible uso de agente
 
 Sí / No / Requiere análisis
 
-## Alternativa sin IA
+### Alternativa sin IA
 
 Sí / No / Requiere análisis
 
-Cada evaluación debe basarse en evidencia del discovery.
+Aplicar los criterios definidos en Knowledge.
 
-No presentar la evaluación como decisión técnica definitiva.
+No forzar una evaluación favorable hacia IA.
 
-Consultar VWFS Classification Guidelines para determinar el carril.
+## Preclasificación
 
----
+Consultar obligatoriamente VWFS Classification Guidelines.
 
-# 11. Pendientes y siguiente paso
+Seleccionar exclusivamente uno:
 
-Identificar información relevante que todavía deba confirmarse.
+- Carril 1 — Self-Service
+- Carril 2 — Champion Assisted
+- Carril 3 — IT Assisted / Integration
 
-Los pendientes deben ser específicos.
+Si todavía no existe suficiente información para determinarlo, no inventar una selección. Registrar el pendiente correspondiente antes de generar la versión definitiva, según el proceso permitido.
 
-Preferir:
+## Justificación de la preclasificación
 
-"Confirmar disponibilidad de acceso al sistema X."
+Explicar brevemente:
 
-Evitar:
+- por qué corresponde ese carril;
+- cuál es la dependencia principal;
+- qué condición podría modificar la clasificación si aplica.
 
-"Falta información."
+La justificación debe basarse en la información de las secciones anteriores.
 
-No inventar responsables ni fechas si no están definidos.
+No utilizar complejidad percibida como criterio independiente.
 
-El siguiente paso debe corresponder al carril preliminar.
-
----
-
-# 12. Validación obligatoria
-
-Antes de generar el documento final, presentar al usuario un resumen con:
-
-- objetivo;
-- problema;
-- AS-IS;
-- TO-BE;
-- alcance;
-- impacto/KPIs;
-- sistemas y dependencias;
-- preclasificación;
-- pendientes.
-
-Preguntar explícitamente:
-
-"¿Este resumen representa correctamente lo que necesitas?"
-
-Si el usuario solicita cambios, actualizar el discovery y cualquier sección afectada.
-
-No generar el Registro de Iniciativa definitivo hasta que el usuario confirme que el resumen es correcto.
+La clasificación es preliminar y no representa aprobación técnica.
 
 ---
 
-# 13. Criterio para cerrar discovery
+# 10. Pendientes y siguiente paso
 
-El discovery puede finalizar cuando exista suficiente información para completar razonablemente las secciones 1 a 10 del Registro de Iniciativa.
+## Pendientes por validar
 
-No todos los campos tienen que estar confirmados.
+Listar únicamente pendientes relevantes para continuar.
 
-Los elementos desconocidos pueden registrarse como:
+Cada pendiente debe ser concreto.
 
-- Pendiente de validar.
-- Pendiente de cuantificar.
-- No aplica.
+Ejemplo:
 
-El objetivo es estructurar la oportunidad para su evaluación posterior, no realizar un assessment técnico completo.
+"Confirmar si el sistema X dispone de un conector corporativo autorizado."
+
+No utilizar frases genéricas como:
+
+"Revisar tema técnico."
+
+## Siguiente paso recomendado
+
+Debe corresponder al carril seleccionado.
+
+### Carril 1
+
+Continuar mediante capacidades self-service corporativas disponibles.
+
+### Carril 2
+
+Continuar con acompañamiento de Champions para configuración o implementación.
+
+### Carril 3
+
+Continuar con evaluación de IT sobre integraciones, accesos, datos o dependencias identificadas.
+
+No prometer aprobación o implementación.
+
+## Preclasificación final visible
+
+El valor mostrado al final del documento debe coincidir exactamente con el carril seleccionado en la sección 9.
+
+---
+
+# Validación previa a generación
+
+Antes de completar el documento, verificar internamente:
+
+- Nombre de iniciativa consistente.
+- Objetivo y resultado esperado diferenciados.
+- Problema claramente explicado.
+- AS-IS coherente con el problema.
+- TO-BE coherente con el objetivo.
+- Empresas, productos, marcas y usuarios basados en información real.
+- KPIs no inventados.
+- Sistemas y dependencias no asumidos.
+- Evaluación coherente con el discovery.
+- Carril coherente con VWFS Classification Guidelines.
+- Justificación coherente con el carril.
+- Pendientes explícitos.
+- Siguiente paso coherente con la preclasificación.
+
+Esta validación es interna.
+
+No crear un anexo de cobertura en el documento final.
+
+---
+
+# Regla final
+
+El Registro de Iniciativa debe permitir que una persona que no participó en el discovery comprenda:
+
+Problema → Proceso actual → Proceso futuro → Alcance → Impacto → Dependencias → Preclasificación → Siguiente paso
+
+El objetivo es facilitar evaluación y canalización, no realizar un assessment técnico definitivo.
