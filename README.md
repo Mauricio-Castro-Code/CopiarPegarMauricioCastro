@@ -1,84 +1,31 @@
-import pandas as pd
-from sklearn.ensemble import HistGradientBoostingClassifier
-from sklearn.metrics import roc_auc_score, average_precision_score
+Contexto: base de contratos de financiamiento automotriz (leasing, crédito, financiamiento). Cada fila es un contrato; el objetivo es saber si el cliente renovó. Hoja "data".
 
-hist = xl("tblHist[#All]", headers=True)
+Diccionario de columnas:
+- cliente: ID del cliente (identificador, no usar en el modelo)
+- tipo_persona: PFA, PFP, PM, etc. (persona física con actividad, sin actividad, persona moral)
+- contratos_previos: 1, 2 o 3+
+- cliente_tipo: nuevo o recurrente
+- comportamiento_pago: A, B, E (categoría, no numérica; A = mejor)
+- estado: estado de la República
+- fecha_nacimiento, contrato (ID), empresa, marca (VW, SEAT, AUDI), auto, unidad (nuevo/usado)
+- producto: leasing, crédito, financiamiento
+- fecha_inicio, fecha_fin, plazo (meses), precio_auto, monto_financiar, tasa, mensualidad, pago_final, valor_residual, enganche, pct_enganche
+- refinancio (sí/no): NO usar, puede ocurrir junto con la renovación
+- renovo (sí/no): OBJETIVO
+- contrato_renovado, fecha_renovacion, marca_renovacion, producto_renovacion: solo existen si renovó. NO usar (fuga de datos)
+- churn, grado_churn: columnas vacías de salida, ignorarlas
 
-CIERRE_DIAS = 60  # un "No" antes de fecha_fin + esta ventana todavia puede cambiar a "Si"
-HOY = pd.Timestamp.today().normalize()
+Parte 1, análisis descriptivo:
+- Excluye filas con renovo vacío (no las cuentes como "No").
+- Calcula la tasa de renovación por: tipo_persona, cliente_tipo, contratos_previos, comportamiento_pago, marca, producto, unidad, estado, plazo (en rangos) y pct_enganche (en rangos).
+- Muestra siempre el número de contratos de cada grupo y omite grupos con menos de 100.
+- Marca los 10 grupos que más se alejan de la tasa global de renovación, tanto hacia arriba como hacia abajo.
+- Revisa combinaciones de dos variables (ej. tipo_persona × producto, marca × unidad) y reporta las más llamativas con su tamaño.
+- Reporta los 15 modelos de auto (columna auto) con mayor y menor renovación, solo con 100+ contratos.
 
-CAT_COLS = ["tipo_persona", "contratos_previos", "cliente_tipo", "comportamiento_pago",
-            "estado", "marca", "unidad", "producto"]
-HIGH_CARD = ["empresa", "auto"]
-NUM_COLS = ["plazo", "precio_auto", "monto_financiar", "tasa", "mensualidad",
-            "pago_final", "valor_residual", "enganche", "pct_enganche"]
-DATE_COLS = ["fecha_nacimiento", "fecha_inicio", "fecha_fin"]
+Parte 2, modelo:
+- Gradient boosting con las columnas válidas. De fecha_nacimiento saca la edad al inicio; de fecha_fin saca el mes.
+- Valida por tiempo: 75% más antiguo según fecha_fin entrena, 25% más reciente prueba.
+- Reporta AUC, PR-AUC, tasa de renovación en prueba y las 10 variables más importantes.
 
-def clean(df):
-    df = df.copy()
-    for c in DATE_COLS:
-        df[c] = pd.to_datetime(df[c], errors="coerce")
-    return df
-
-def build_features(df, top):
-    X = pd.DataFrame(index=df.index)
-    for c in NUM_COLS:
-        X[c] = pd.to_numeric(df[c], errors="coerce")
-    # Edad al firmar, no a hoy: asi el valor no cambia con el tiempo
-    X["edad_al_inicio"] = (df["fecha_inicio"] - df["fecha_nacimiento"]).dt.days / 365.25
-    X["ltv"] = X["monto_financiar"] / X["precio_auto"]
-    X["mes_fin"] = df["fecha_fin"].dt.month
-    for c in CAT_COLS:
-        X[c] = df[c].astype(str).str.strip()
-    for c in HIGH_CARD:
-        s = df[c].astype(str).str.strip()
-        X[c] = s.where(s.isin(top[c]), "otros")
-    return X
-
-d = clean(hist)
-txt = d["renovo"].astype(str).str.strip().str.lower()
-vacio = d["renovo"].isna() | txt.isin(["", "nan", "none"])
-renovo = txt.isin(["si", "sí"])
-dijo_no = txt.isin(["no"])
-
-# Entrena solo con desenlace explicito: Si, o No ya vencido. Los vacios quedan fuera.
-vencido = d["fecha_fin"] + pd.Timedelta(days=CIERRE_DIAS) <= HOY
-resuelto = renovo | (dijo_no & vencido)
-n_vacios = int(vacio.sum())
-n_no_sin_vencer = int((dijo_no & ~vencido).sum())
-d, y = d[resuelto], renovo[resuelto].astype(int)
-
-TOP = {c: d[c].astype(str).str.strip().value_counts().head(50).index for c in HIGH_CARD}
-X = build_features(d, TOP)
-CATS = {c: pd.CategoricalDtype(sorted(X[c].unique())) for c in CAT_COLS + HIGH_CARD}
-
-def encode(X):
-    X = X.copy()
-    for c, t in CATS.items():
-        X[c] = X[c].astype(t)  # categoria desconocida -> NaN, el modelo la tolera
-    return X
-
-X = encode(X)
-
-# Validacion por tiempo: 75% mas antiguo entrena, 25% mas reciente prueba
-corte = d["fecha_fin"].quantile(0.75)
-tr = d["fecha_fin"] <= corte
-
-def make_model():
-    return HistGradientBoostingClassifier(
-        categorical_features="from_dtype", learning_rate=0.05,
-        max_iter=300, early_stopping=True, random_state=42)
-
-m = make_model().fit(X[tr], y[tr])
-p = m.predict_proba(X[~tr])[:, 1]
-
-# Modelo final con todo el historico resuelto
-model = make_model().fit(X, y)
-
-pd.DataFrame({
-    "metrica": ["AUC", "PR-AUC", "tasa_renovacion_prueba", "filas_entrenamiento", "filas_prueba",
-                "excluidas_renovo_vacio", "excluidas_no_sin_vencer"],
-    "valor": [round(roc_auc_score(y[~tr], p), 3), round(average_precision_score(y[~tr], p), 3),
-              round(y[~tr].mean(), 3), int(tr.sum()), int((~tr).sum()),
-              n_vacios, n_no_sin_vencer]
-})
+Al final: muéstrame el código Python que ejecutaste y avísame si notas columnas sospechosas (que parezcan fuga de datos) o datos raros.
