@@ -1,14 +1,8 @@
-Usa la hoja "data". Objetivo: construir una tabla de scoring de retención auditable.
+Antes de seguir, necesito aclarar cuatro puntos:
 
-Datos:
-- Excluye filas con renovo vacío.
-- Excluye del modelo: cliente, contrato, refinancio, contrato_renovado, fecha_renovacion, marca_renovacion, producto_renovacion, churn, grado_churn.
-- Excluye los "No" cuyo fecha_fin + 60 días aún no ha pasado (pueden estar pendientes).
-- fecha_nacimiento → edad al inicio. plazo, pct_enganche, monto_financiar y tasa → rangos por cuartiles.
+1. ¿Por qué la fecha observable es 2025-12-30? Dime cuál es la fecha máxima de fecha_fin, de fecha_renovacion y de fecha_inicio en la base, y cuántos contratos hay por trimestre de fecha_fin con su tasa de renovación.
+2. La tasa de renovación pasa de 13.5% (train) a 23.0% (test). Explícame por qué: tasa por trimestre de fecha_fin, y por producto, marca y contratos_previos dentro de train y test. Indica si cambió la mezcla de clientes o la tasa dentro de cada segmento.
+3. El score 0-100 tiene AUC 0.682 y la probabilidad logística 0.650. ¿Qué variables o rangos difieren entre los dos? ¿Se ajustó algo mirando el test? Si es así, rehazlo sin tocar el test.
+4. Muéstrame la tabla de puntos (variable | valor | puntos | n_contratos | tasa histórica) y la calibración por banda de score en el test (n contratos y tasa real). Define los grados Bajo/Medio/Alto con terciles del score, no con umbrales fijos.
 
-Pasos:
-1. Ajusta una regresión logística con las variables válidas. Si dos variables miden lo mismo (ej. cliente_tipo y contratos_previos), revisa su relación y quédate con la más informativa.
-2. Valida por tiempo: el 75% más antiguo según fecha_fin entrena, el 25% más reciente prueba. Reporta AUC.
-3. Convierte los coeficientes a puntos (score 0-100). Entrégame la tabla: variable | valor | puntos | n_contratos | tasa_renovacion_historica. Valores con menos de 100 contratos = 0 puntos.
-4. Con el 25% de prueba, tabla de calibración por banda de score (0-20, 20-40, ... 80-100): n contratos y tasa real de renovación.
-5. Muéstrame el código que ejecutaste.
+Muéstrame el código que ejecutaste.
