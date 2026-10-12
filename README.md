@@ -1,118 +1,84 @@
-Crea una infografía vertical muy visual y sencilla, estilo “Cómo usarlo en 5 pasos”, para enseñar a un colaborador de Volkswagen Financial Services a utilizar el VWFS AI Opportunity Discovery Agent por primera vez.
+import pandas as pd
+from sklearn.ensemble import HistGradientBoostingClassifier
+from sklearn.metrics import roc_auc_score, average_precision_score
 
-Debe parecer una guía rápida de uso, NO un documento técnico. Usar ilustraciones, iconos grandes, capturas simuladas de chat, flechas y muy poco texto.
+hist = xl("tblHist[#All]", headers=True)
 
-Título:
-“¿Tienes una idea? Conviértela en una iniciativa”
+CIERRE_DIAS = 60  # un "No" antes de fecha_fin + esta ventana todavia puede cambiar a "Si"
+HOY = pd.Timestamp.today().normalize()
 
-Subtítulo:
-“Usar el VWFS AI Opportunity Discovery Agent es así de fácil”
+CAT_COLS = ["tipo_persona", "contratos_previos", "cliente_tipo", "comportamiento_pago",
+            "estado", "marca", "unidad", "producto"]
+HIGH_CARD = ["empresa", "auto"]
+NUM_COLS = ["plazo", "precio_auto", "monto_financiar", "tasa", "mensualidad",
+            "pago_final", "valor_residual", "enganche", "pct_enganche"]
+DATE_COLS = ["fecha_nacimiento", "fecha_inicio", "fecha_fin"]
 
-PASO 1 — Abre el agente
+def clean(df):
+    df = df.copy()
+    for c in DATE_COLS:
+        df[c] = pd.to_datetime(df[c], errors="coerce")
+    return df
 
-Mostrar visualmente una computadora o Microsoft Copilot con una tarjeta del agente.
+def build_features(df, top):
+    X = pd.DataFrame(index=df.index)
+    for c in NUM_COLS:
+        X[c] = pd.to_numeric(df[c], errors="coerce")
+    # Edad al firmar, no a hoy: asi el valor no cambia con el tiempo
+    X["edad_al_inicio"] = (df["fecha_inicio"] - df["fecha_nacimiento"]).dt.days / 365.25
+    X["ltv"] = X["monto_financiar"] / X["precio_auto"]
+    X["mes_fin"] = df["fecha_fin"].dt.month
+    for c in CAT_COLS:
+        X[c] = df[c].astype(str).str.strip()
+    for c in HIGH_CARD:
+        s = df[c].astype(str).str.strip()
+        X[c] = s.where(s.isin(top[c]), "otros")
+    return X
 
-Texto grande:
-“1. Haz clic en VWFS AI Opportunity Discovery Agent”
+d = clean(hist)
+txt = d["renovo"].astype(str).str.strip().str.lower()
+vacio = d["renovo"].isna() | txt.isin(["", "nan", "none"])
+renovo = txt.isin(["si", "sí"])
+dijo_no = txt.isin(["no"])
 
-Texto pequeño:
-“No necesitas preparar ningún documento.”
+# Entrena solo con desenlace explicito: Si, o No ya vencido. Los vacios quedan fuera.
+vencido = d["fecha_fin"] + pd.Timedelta(days=CIERRE_DIAS) <= HOY
+resuelto = renovo | (dijo_no & vencido)
+n_vacios = int(vacio.sum())
+n_no_sin_vencer = int((dijo_no & ~vencido).sum())
+d, y = d[resuelto], renovo[resuelto].astype(int)
 
-PASO 2 — Inicia la conversación
+TOP = {c: d[c].astype(str).str.strip().value_counts().head(50).index for c in HIGH_CARD}
+X = build_features(d, TOP)
+CATS = {c: pd.CategoricalDtype(sorted(X[c].unique())) for c in CAT_COLS + HIGH_CARD}
 
-Mostrar una interfaz de chat.
+def encode(X):
+    X = X.copy()
+    for c, t in CATS.items():
+        X[c] = X[c].astype(t)  # categoria desconocida -> NaN, el modelo la tolera
+    return X
 
-Burbuja del usuario:
-“Hola”
+X = encode(X)
 
-Texto grande:
-“2. Manda un mensaje para comenzar”
+# Validacion por tiempo: 75% mas antiguo entrena, 25% mas reciente prueba
+corte = d["fecha_fin"].quantile(0.75)
+tr = d["fecha_fin"] <= corte
 
-Texto pequeño:
-“Puedes empezar simplemente diciendo Hola.”
+def make_model():
+    return HistGradientBoostingClassifier(
+        categorical_features="from_dtype", learning_rate=0.05,
+        max_iter=300, early_stopping=True, random_state=42)
 
-PASO 3 — Cuéntale tu idea
+m = make_model().fit(X[tr], y[tr])
+p = m.predict_proba(X[~tr])[:, 1]
 
-Mostrar una burbuja de chat del usuario:
+# Modelo final con todo el historico resuelto
+model = make_model().fit(X, y)
 
-“Tengo una idea para mejorar…”
-
-Texto grande:
-“3. Explícale tu problema o idea”
-
-Texto pequeño:
-“Escríbelo como se lo explicarías a un compañero. No necesitas saber de IA.”
-
-Incluir ejemplos pequeños alrededor:
-“Tenemos muchas tareas manuales”
-“La información está dispersa”
-“Quiero reducir tiempos”
-“Recibimos muchas consultas repetitivas”
-
-PASO 4 — Responde sus preguntas
-
-Mostrar varias burbujas de conversación entre usuario y agente.
-
-Texto grande:
-“4. El agente te hará algunas preguntas”
-
-Mostrar visualmente iconos sencillos de:
-
-* problema actual
-* cómo se hace hoy
-* cómo te gustaría que funcionara
-* personas involucradas
-* sistemas o información utilizada
-
-Texto pequeño:
-“Solo responde con lo que sabes. Si no conoces algún dato, puedes decirlo.”
-
-PASO 5 — Revisa y confirma
-
-Mostrar una tarjeta/resumen con un botón visual que diga:
-
-CONFIRMO
-
-Texto grande:
-“5. Revisa tu iniciativa y confirma”
-
-Texto pequeño:
-“Si algo está mal, puedes pedir que lo corrija antes de confirmar.”
-
-RESULTADO
-
-Crear al final tres caminos visuales simples:
-
-🟢 Carril 1 — Self-Service
-“Puedes avanzar con herramientas disponibles.”
-
-🟡 Carril 2 — Champion
-“Un Champion te ayudará a implementarlo.”
-
-🔵 Carril 3 — IT / Data
-“La iniciativa requiere evaluación e integración.”
-
-Debajo colocar:
-
-“El agente te dirá cuál es el siguiente paso.”
-
-MENSAJE FINAL GRANDE
-
-“Tú trae la idea. El agente te ayuda a estructurarla.”
-
-Pie:
-“Volkswagen Financial Services | Uso interno”
-
-Diseño:
-
-* Muy visual.
-* Formato vertical.
-* Flujo de arriba hacia abajo con flechas.
-* Cada paso debe tener un número grande dentro de un círculo.
-* Azul marino, azul VWFS, blanco y gris claro.
-* Diseño corporativo pero amigable.
-* Usar mockups de conversación y burbujas de chat.
-* Máximo 1–2 frases por paso.
-* Evitar párrafos largos.
-* Evitar palabras técnicas como API, MCP, integración custom, arquitectura o backend.
-* La persona debe poder entender cómo usar el agente con solo mirar la infografía durante 30 segundos
+pd.DataFrame({
+    "metrica": ["AUC", "PR-AUC", "tasa_renovacion_prueba", "filas_entrenamiento", "filas_prueba",
+                "excluidas_renovo_vacio", "excluidas_no_sin_vencer"],
+    "valor": [round(roc_auc_score(y[~tr], p), 3), round(average_precision_score(y[~tr], p), 3),
+              round(y[~tr].mean(), 3), int(tr.sum()), int((~tr).sum()),
+              n_vacios, n_no_sin_vencer]
+})
